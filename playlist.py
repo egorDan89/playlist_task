@@ -25,15 +25,15 @@ class Playlist:
 
     def add_song(self, data):
         if self.head_node is None:
-            new_node = SongNode(data)  # то создать объект класса SongNode и задать первый элемент списка
-            new_node.prev_node = None  # тогда предыдуший элемент от нового элемента будет пустым
-            self.head_node = new_node  # и первым элементом (head_node) будет новый элемент
+            new_node = SongNode(data)
+            new_node.prev_node = None
+            self.head_node = new_node
 
-        else:  # если head_node уже было присвоено значение
-            new_node = SongNode(data)  # то создаем новый элемент
-            cur = self.head_node  # и существующий head_node cтановится текущим элементов
-            while cur.next_node:  # пока след элемент от текущего не None
-                cur = cur.next_node  # текущий становится след нодой
+        else:
+            new_node = SongNode(data)
+            cur = self.head_node
+            while cur.next_node:
+                cur = cur.next_node
 
             cur.next_node = new_node
             new_node.prev_node = cur
